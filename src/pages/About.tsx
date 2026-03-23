@@ -1,12 +1,12 @@
-import { Box, Typography, Grid, Avatar, Card, CardContent } from "@mui/material";
+import { Box, Typography, Avatar, Card, CardContent } from "@mui/material";
+import Grid from "@mui/material/Grid";
+
 import aboutImg from "../assets/images/about.jpg";
 import client1 from "../assets/clients/client1.png";
 import client2 from "../assets/clients/client2.png";
-import client3 from "../assets/clients/client3.jpg"
-
+import client3 from "../assets/clients/client3.jpg";
 
 function About() {
-
     const clients = [
         { name: "Client 1", logo: client1 },
         { name: "Client 2", logo: client2 },
@@ -28,24 +28,24 @@ function About() {
                 À propos de moi
             </Typography>
 
-            <Grid container spacing={4} alignItems="center" justifyContent={"center"}>
+            <Grid container spacing={4} alignItems="center" justifyContent="center">
 
-                <Grid item xs={12} md={5} sx={{
-                    textAlign: "center",
-                }}>
-                    <Avatar
-                        src={aboutImg}
-                        alt="Kelly Make-Up"
-                        sx={{
-                            width: 280,
-                            height: 280,
-                            border: "5px solid #9D0303",
-                            margin: "0 auto",
-                        }}
-                    />
+                <Grid xs={12} md={5}>
+                    <Box sx={{ textAlign: "center" }}>
+                        <Avatar
+                            src={aboutImg}
+                            alt="Kelly Make-Up"
+                            sx={{
+                                width: 280,
+                                height: 280,
+                                border: "5px solid #9D0303",
+                                margin: "0 auto",
+                            }}
+                        />
+                    </Box>
                 </Grid>
 
-                <Grid item xs={12} md={7}>
+                <Grid xs={12} md={7}>
                     <Typography
                         sx={{
                             textAlign: "justify",
@@ -66,6 +66,7 @@ function About() {
                 </Grid>
             </Grid>
 
+            {/* CLIENTS */}
             <Box sx={{ marginTop: "80px" }}>
                 <Typography
                     variant="h4"
@@ -81,7 +82,7 @@ function About() {
 
                 <Grid container spacing={4} justifyContent="center">
                     {clients.map((client, index) => (
-                        <Grid key={index} item xs={6} sm={4} md={3} lg={2}>
+                        <Grid key={index} xs={6} sm={4} md={3} lg={2}>
                             <Card
                                 sx={{
                                     background: "#1a1a1a",
@@ -109,6 +110,7 @@ function About() {
                 </Grid>
             </Box>
 
+            {/* ENTREPRISE */}
             <Box sx={{ marginTop: "80px" }}>
                 <Typography
                     variant="h4"
