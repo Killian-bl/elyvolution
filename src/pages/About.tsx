@@ -1,5 +1,4 @@
 import { Box, Typography, Avatar, Card, CardContent } from "@mui/material";
-import Grid from "@mui/material/Grid";
 
 import aboutImg from "../assets/images/about.jpg";
 import client1 from "../assets/clients/client1.png";
@@ -16,6 +15,7 @@ function About() {
     return (
         <Box sx={{ padding: "60px 20px", maxWidth: "1200px", margin: "0 auto" }}>
 
+            {/* TITLE */}
             <Typography
                 variant="h3"
                 sx={{
@@ -28,43 +28,46 @@ function About() {
                 À propos de moi
             </Typography>
 
-            <Grid container spacing={4} alignItems="center" justifyContent="center">
-
-                <Grid xs={12} md={5}>
-                    <Box sx={{ textAlign: "center" }}>
-                        <Avatar
-                            src={aboutImg}
-                            alt="Kelly Make-Up"
-                            sx={{
-                                width: 280,
-                                height: 280,
-                                border: "5px solid #9D0303",
-                                margin: "0 auto",
-                            }}
-                        />
-                    </Box>
-                </Grid>
-
-                <Grid xs={12} md={7}>
-                    <Typography
+            {/* ABOUT SECTION */}
+            <Box
+                sx={{
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", md: "1fr 2fr" },
+                    gap: 4,
+                    alignItems: "center",
+                }}
+            >
+                <Box sx={{ textAlign: "center" }}>
+                    <Avatar
+                        src={aboutImg}
+                        alt="Kelly Make-Up"
                         sx={{
-                            textAlign: "justify",
-                            fontSize: "1.15rem",
-                            lineHeight: 1.8,
-                            color: "#fff",
+                            width: 280,
+                            height: 280,
+                            border: "5px solid #9D0303",
+                            margin: "0 auto",
                         }}
-                    >
-                        Je m'appelle Kelly, maquilleuse passionnée spécialisée dans le maquillage
-                        artistique, glamour et effets spéciaux. J’aide mes clients à exprimer leur
-                        identité et leur créativité à travers des looks uniques et professionnels.
+                    />
+                </Box>
 
-                        <br /><br />
+                <Typography
+                    sx={{
+                        textAlign: "justify",
+                        fontSize: "1.15rem",
+                        lineHeight: 1.8,
+                        color: "#fff",
+                    }}
+                >
+                    Je m'appelle Kelly, maquilleuse passionnée spécialisée dans le maquillage
+                    artistique, glamour et effets spéciaux. J’aide mes clients à exprimer leur
+                    identité et leur créativité à travers des looks uniques et professionnels.
 
-                        Mon objectif : créer des maquillages sur mesure, adaptés à chaque
-                        personnalité, événement ou univers artistique.
-                    </Typography>
-                </Grid>
-            </Grid>
+                    <br /><br />
+
+                    Mon objectif : créer des maquillages sur mesure, adaptés à chaque
+                    personnalité, événement ou univers artistique.
+                </Typography>
+            </Box>
 
             {/* CLIENTS */}
             <Box sx={{ marginTop: "80px" }}>
@@ -80,34 +83,43 @@ function About() {
                     Ils m'ont fait confiance
                 </Typography>
 
-                <Grid container spacing={4} justifyContent="center">
+                <Box
+                    sx={{
+                        display: "grid",
+                        gridTemplateColumns: {
+                            xs: "repeat(2, 1fr)",
+                            sm: "repeat(3, 1fr)",
+                            md: "repeat(5, 1fr)",
+                        },
+                        gap: 3,
+                    }}
+                >
                     {clients.map((client, index) => (
-                        <Grid key={index} xs={6} sm={4} md={3} lg={2}>
-                            <Card
-                                sx={{
-                                    background: "#1a1a1a",
-                                    padding: "20px",
-                                    borderRadius: "12px",
-                                    border: "2px solid #9D0303",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
+                        <Card
+                            key={index}
+                            sx={{
+                                background: "#1a1a1a",
+                                padding: "20px",
+                                borderRadius: "12px",
+                                border: "2px solid #9D0303",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <img
+                                src={client.logo}
+                                alt={client.name}
+                                style={{
+                                    width: "100%",
+                                    height: "auto",
+                                    objectFit: "contain",
+                                    filter: "brightness(0.9)",
                                 }}
-                            >
-                                <img
-                                    src={client.logo}
-                                    alt={client.name}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                        objectFit: "contain",
-                                        filter: "brightness(0.9)",
-                                    }}
-                                />
-                            </Card>
-                        </Grid>
+                            />
+                        </Card>
                     ))}
-                </Grid>
+                </Box>
             </Box>
 
             {/* ENTREPRISE */}
