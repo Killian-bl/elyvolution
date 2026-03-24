@@ -4,11 +4,11 @@ import Layout from "../pages/Layout/Layout.tsx";
 import About from "../pages/About.tsx";
 //import Meet from "../pages/Meet.tsx";
 import Portfolio from "../pages/Portfolio.tsx";
-//import HorrorMakeup from "../pages/HorrorMakeup.tsx";
-//import ClassicMakeup from "../pages/ClassicMakeup.tsx";
-//import ScarMakeup from "../pages/ScarMakeup.tsx";
+import HorrorMakeup from "../pages/HorrorMakeup.tsx";
+import ClassicMakeup from "../pages/ClassicMakeup.tsx";
+import ScarMakeup from "../pages/ScarMakeup.tsx";
 
-export const Router = createBrowserRouter([
+export const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout/>,
@@ -29,7 +29,7 @@ export const Router = createBrowserRouter([
                 path: "/Portfolio",
                 element: <Portfolio/>,
             },
-            /*{
+            {
                 path: "/Horror",
                 element: <HorrorMakeup/>,
             },
@@ -40,9 +40,9 @@ export const Router = createBrowserRouter([
             {
                 path: "/Scar",
                 element: <ScarMakeup/>,
-            }*/
+            }
         ]
     }
 ]);
 
-export default Router;
+export default router;

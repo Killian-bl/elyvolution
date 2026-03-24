@@ -1,0 +1,13 @@
+.slick-slide {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.slick-track {
+    display: flex !important;
+    align-items: center;
+}
+
+.slick-slide > div {
+    margin: 0 auto;
+}
