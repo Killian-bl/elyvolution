@@ -1,4 +1,4 @@
-import { Box, Typography, Avatar, Card, CardContent } from "@mui/material";
+import { Box, Typography, Avatar, Card } from "@mui/material";
 
 import aboutImg from "../assets/images/about.jpg";
 import client1 from "../assets/clients/client1.png";
@@ -13,71 +13,69 @@ function About() {
     ];
 
     return (
-        <Box sx={{ padding: "60px 20px", maxWidth: "1200px", margin: "0 auto" }}>
-
+        <Box
+            sx={{
+                px: { xs: 3, md: 6 },
+                py: { xs: 8, md: 12 },
+                maxWidth: "1000px",
+                margin: "0 auto",
+                textAlign: "center",
+            }}
+        >
             {/* TITLE */}
             <Typography
-                variant="h3"
                 sx={{
-                    textAlign: "center",
-                    marginBottom: "40px",
-                    color: "#9d0303",
-                    fontWeight: "bold",
+                    fontSize: { xs: "2rem", md: "2.8rem" },
+                    fontWeight: 600,
+                    mb: 6,
+                    color: "#fff",
+                    letterSpacing: "1px",
                 }}
             >
-                À propos de moi
+                À propos
             </Typography>
 
-            {/* ABOUT SECTION */}
-            <Box
+            {/* IMAGE */}
+            <Avatar
+                src={aboutImg}
+                alt="Kelly Make-Up"
                 sx={{
-                    display: "grid",
-                    gridTemplateColumns: { xs: "1fr", md: "1fr 2fr" },
-                    gap: 4,
-                    alignItems: "center",
+                    width: { xs: 160, md: 220 },
+                    height: { xs: 160, md: 220 },
+                    margin: "0 auto",
+                    mb: 5,
+                    boxShadow: "0 10px 40px rgba(157,3,3,0.3)", // glow subtil
+                }}
+            />
+
+            {/* TEXT */}
+            <Typography
+                sx={{
+                    maxWidth: "600px",
+                    margin: "0 auto",
+                    fontSize: "1.1rem",
+                    lineHeight: 1.9,
+                    color: "rgba(255,255,255,0.8)",
                 }}
             >
-                <Box sx={{ textAlign: "center" }}>
-                    <Avatar
-                        src={aboutImg}
-                        alt="Kelly Make-Up"
-                        sx={{
-                            width: 280,
-                            height: 280,
-                            border: "5px solid #9D0303",
-                            margin: "0 auto",
-                        }}
-                    />
-                </Box>
+                Je m'appelle Kelly, maquilleuse passionnée spécialisée dans le maquillage
+                artistique, glamour et effets spéciaux. J’aide mes clients à exprimer leur
+                identité et leur créativité à travers des looks uniques et professionnels.
 
-                <Typography
-                    sx={{
-                        textAlign: "justify",
-                        fontSize: "1.15rem",
-                        lineHeight: 1.8,
-                        color: "#fff",
-                    }}
-                >
-                    Je m'appelle Kelly, maquilleuse passionnée spécialisée dans le maquillage
-                    artistique, glamour et effets spéciaux. J’aide mes clients à exprimer leur
-                    identité et leur créativité à travers des looks uniques et professionnels.
+                <br /><br />
 
-                    <br /><br />
-
-                    Mon objectif : créer des maquillages sur mesure, adaptés à chaque
-                    personnalité, événement ou univers artistique.
-                </Typography>
-            </Box>
+                Mon objectif : créer des maquillages sur mesure, adaptés à chaque
+                personnalité et univers.
+            </Typography>
 
             {/* CLIENTS */}
-            <Box sx={{ marginTop: "80px" }}>
+            <Box sx={{ mt: 12 }}>
                 <Typography
-                    variant="h4"
                     sx={{
-                        textAlign: "center",
-                        marginBottom: "30px",
-                        color: "#9d0303",
-                        fontWeight: "bold",
+                        fontSize: "1.4rem",
+                        mb: 5,
+                        color: "rgba(255,255,255,0.7)",
+                        letterSpacing: "2px",
                     }}
                 >
                     Ils m'ont fait confiance
@@ -85,26 +83,23 @@ function About() {
 
                 <Box
                     sx={{
-                        display: "grid",
-                        gridTemplateColumns: {
-                            xs: "repeat(2, 1fr)",
-                            sm: "repeat(3, 1fr)",
-                            md: "repeat(5, 1fr)",
-                        },
-                        gap: 3,
+                        display: "flex",
+                        justifyContent: "center",
+                        flexWrap: "wrap",
+                        gap: 5,
+                        opacity: 0.8,
                     }}
                 >
                     {clients.map((client, index) => (
-                        <Card
+                        <Box
                             key={index}
                             sx={{
-                                background: "#1a1a1a",
-                                padding: "20px",
-                                borderRadius: "12px",
-                                border: "2px solid #9D0303",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
+                                width: 90,
+                                transition: "0.3s",
+                                "&:hover": {
+                                    transform: "scale(1.1)",
+                                    opacity: 1,
+                                },
                             }}
                         >
                             <img
@@ -112,61 +107,45 @@ function About() {
                                 alt={client.name}
                                 style={{
                                     width: "100%",
-                                    height: "auto",
-                                    objectFit: "contain",
-                                    filter: "brightness(0.9)",
+                                    filter: "grayscale(100%)",
                                 }}
                             />
-                        </Card>
+                        </Box>
                     ))}
                 </Box>
             </Box>
 
             {/* ENTREPRISE */}
-            <Box sx={{ marginTop: "80px" }}>
-                <Typography
-                    variant="h4"
-                    sx={{
-                        textAlign: "center",
-                        marginBottom: "30px",
-                        color: "#9d0303",
-                        fontWeight: "bold",
-                    }}
-                >
-                    Mon entreprise & mes motivations
-                </Typography>
-
+            <Box sx={{ mt: 12 }}>
                 <Card
                     sx={{
-                        background: "#1a1a1a",
-                        padding: "30px",
-                        borderRadius: "12px",
-                        border: "2px solid #9D0303",
+                        maxWidth: "650px",
+                        margin: "0 auto",
+                        p: { xs: 3, md: 5 },
+                        borderRadius: "20px",
+                        background: "rgba(255,255,255,0.03)", // effet glass
+                        backdropFilter: "blur(10px)",
+                        boxShadow: "0 10px 40px rgba(0,0,0,0.4)",
                     }}
                 >
-                    <CardContent>
-                        <Typography
-                            sx={{
-                                textAlign: "justify",
-                                fontSize: "1.15rem",
-                                lineHeight: 1.8,
-                                color: "#fff",
-                            }}
-                        >
-                            J’ai créé mon entreprise pour offrir un espace où l’art, l’esthétique et
-                            la confiance en soi se rencontrent. Chaque maquillage est pensé comme une
-                            collaboration avec le client, pour mettre en valeur son style, son
-                            énergie et son univers.
+                    <Typography
+                        sx={{
+                            fontSize: "1.05rem",
+                            lineHeight: 1.9,
+                            color: "rgba(255,255,255,0.85)",
+                        }}
+                    >
+                        J’ai créé mon entreprise pour offrir un espace où l’art, l’esthétique et
+                        la confiance en soi se rencontrent. Chaque maquillage est pensé comme une
+                        collaboration avec le client.
 
-                            <br /><br />
+                        <br /><br />
 
-                            Ce qui me motive chaque jour, c’est de voir mes clients repartir avec le
-                            sourire, confiants, transformés… et fiers d’eux-mêmes.
-                        </Typography>
-                    </CardContent>
+                        Ce qui me motive chaque jour, c’est de voir mes clients repartir confiants,
+                        transformés… et fiers d’eux-mêmes.
+                    </Typography>
                 </Card>
             </Box>
-
         </Box>
     );
 }
