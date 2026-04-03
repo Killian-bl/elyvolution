@@ -22,7 +22,6 @@ function About() {
                 textAlign: "center",
             }}
         >
-            {/* TITLE */}
             <Typography
                 sx={{
                     fontSize: { xs: "2rem", md: "2.8rem" },
@@ -35,7 +34,6 @@ function About() {
                 À propos
             </Typography>
 
-            {/* IMAGE */}
             <Avatar
                 src={aboutImg}
                 alt="Kelly Make-Up"
@@ -48,7 +46,6 @@ function About() {
                 }}
             />
 
-            {/* TEXT */}
             <Typography
                 sx={{
                     maxWidth: "600px",
@@ -68,7 +65,6 @@ function About() {
                 personnalité et univers.
             </Typography>
 
-            {/* CLIENTS */}
             <Box sx={{ mt: 12 }}>
                 <Typography
                     sx={{
@@ -115,7 +111,6 @@ function About() {
                 </Box>
             </Box>
 
-            {/* ENTREPRISE */}
             <Box sx={{ mt: 12 }}>
                 <Card
                     sx={{

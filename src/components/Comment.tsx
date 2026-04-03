@@ -32,7 +32,7 @@ const Comment = () => {
                 p: { xs: 3, md: 5 },
                 borderRadius: "20px",
 
-                // 🔥 glass effect
+
                 background: "rgba(255,255,255,0.04)",
                 backdropFilter: "blur(12px)",
 
@@ -94,7 +94,7 @@ const Comment = () => {
 
 export default Comment;
 
-/* 🎨 Styles communs */
+
 const inputStyle = {
     input: { color: "#fff" },
     textarea: { color: "#fff" },

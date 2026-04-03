@@ -7,7 +7,6 @@ const Home = () => {
     return (
         <Box>
 
-            {/* HERO */}
             <Box
                 sx={{
                     minHeight: "90vh",
@@ -33,7 +32,6 @@ const Home = () => {
                     },
                 }}
             >
-                {/* contenu au-dessus de l’overlay */}
                 <Box sx={{ position: "relative", zIndex: 1, maxWidth: "700px" }}>
 
                     <Typography
@@ -58,7 +56,6 @@ const Home = () => {
                         Sublimez votre beauté naturelle
                     </Typography>
 
-                    {/* FORM */}
                     <Box
                         sx={{
                             maxWidth: "400px",
@@ -75,7 +72,6 @@ const Home = () => {
                 </Box>
             </Box>
 
-            {/* ABOUT PREVIEW */}
             <Box
                 sx={{
                     px: { xs: 3, md: 6 },
@@ -114,7 +110,6 @@ const Home = () => {
                 </Typography>
             </Box>
 
-            {/* COMMENTAIRES */}
             <Box
                 sx={{
                     py: { xs: 10, md: 14 },
