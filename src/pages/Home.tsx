@@ -22,7 +22,7 @@ const Home = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
 
-                    // 🔥 overlay sombre + effet luxe
+
                     "&::before": {
                         content: '""',
                         position: "absolute",
