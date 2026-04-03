@@ -1,4 +1,4 @@
-import { Box, Card, CardMedia, CardContent, Typography, Container } from "@mui/material";
+import { Box, Card, CardMedia, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import makeup1 from "../assets/horror/horror10.jpeg";
@@ -47,81 +47,128 @@ export default function Portfolio() {
     const navigate = useNavigate();
 
     const renderSection = (title: string, data: MakeupItem[], route: string) => (
-        <Box sx={{ padding: "40px 20px" }}>
+        <Box
+            sx={{
+                px: { xs: 3, md: 6 },
+                py: { xs: 8, md: 12 },
+                maxWidth: "1200px",
+                margin: "0 auto",
+                textAlign: "center",
+            }}
+        >
+            {/* TITLE */}
             <Typography
-                variant="h3"
                 sx={{
-                    textAlign: "center",
-                    marginBottom: "40px",
-                    fontWeight: "bold",
-                    color: "#9D0303",
+                    fontSize: { xs: "1.8rem", md: "2.4rem" },
+                    mb: 6,
+                    color: "#fff",
+                    letterSpacing: "2px",
                 }}
             >
                 {title}
             </Typography>
 
-            <Container maxWidth="lg">
-                <Box
-                    sx={{
-                        display: "flex",
-                        gap: 3,
-                        overflowX: "auto",
-                        paddingBottom: "10px",
-                        scrollSnapType: "x mandatory",
-                    }}
-                >
-                    {data.map((item, index) => (
-                        <Card
-                            key={index}
-                            onClick={() => navigate(route)}
-                            sx={{
-                                minWidth: "250px",
-                                maxWidth: "250px",
-                                flex: "0 0 auto",
-                                borderRadius: "12px",
-                                overflow: "hidden",
-                                cursor: "pointer",
-                                background: "#1a1a1a",
-                                boxShadow: 3,
-                                scrollSnapAlign: "start",
-                                transition: "0.3s",
-                                "&:hover": {
-                                    transform: "scale(1.05)",
-                                },
-                            }}
-                        >
+            {/* SCROLL GALLERY */}
+            <Box
+                sx={{
+                    display: "flex",
+                    gap: 4,
+                    overflowX: "auto",
+                    pb: 2,
+                    scrollSnapType: "x mandatory",
+
+                    "&::-webkit-scrollbar": {
+                        height: "6px",
+                    },
+                    "&::-webkit-scrollbar-thumb": {
+                        background: "#333",
+                        borderRadius: "10px",
+                    },
+                }}
+            >
+                {data.map((item, index) => (
+                    <Card
+                        key={index}
+                        onClick={() => navigate(route)}
+                        sx={{
+                            minWidth: { xs: 220, md: 260 },
+                            flex: "0 0 auto",
+                            borderRadius: "20px",
+                            overflow: "hidden",
+                            cursor: "pointer",
+                            position: "relative",
+
+                            background: "transparent",
+                            boxShadow: "none",
+
+                            scrollSnapAlign: "start",
+                            transition: "0.4s",
+
+                            "&:hover": {
+                                transform: "scale(1.05)",
+                            },
+
+                            "&:hover .overlay": {
+                                opacity: 1,
+                            },
+
+                            "&:hover img": {
+                                transform: "scale(1.1)",
+                            },
+                        }}
+                    >
+                        {/* IMAGE */}
+                        <Box sx={{ overflow: "hidden", borderRadius: "20px" }}>
                             <CardMedia
                                 component="img"
-                                height="280"
+                                height="320"
                                 image={item.image}
                                 alt={item.title}
-                                sx={{ objectFit: "cover" }}
+                                sx={{
+                                    objectFit: "cover",
+                                    transition: "0.5s",
+                                }}
                             />
+                        </Box>
 
-                            <CardContent>
-                                <Typography
-                                    variant="h6"
-                                    sx={{
-                                        color: "#9D0303",
-                                        fontWeight: "600",
-                                        textAlign: "center",
-                                    }}
-                                >
-                                    {item.title} — {item.price}
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </Box>
-            </Container>
+                        {/* OVERLAY */}
+                        <Box
+                            className="overlay"
+                            sx={{
+                                position: "absolute",
+                                inset: 0,
+                                borderRadius: "20px",
+                                background:
+                                    "linear-gradient(to top, rgba(0,0,0,0.8), transparent)",
+                                display: "flex",
+                                alignItems: "flex-end",
+                                justifyContent: "center",
+                                opacity: 0,
+                                transition: "0.4s",
+                                p: 2,
+                            }}
+                        >
+                            <Typography
+                                sx={{
+                                    color: "#fff",
+                                    fontSize: "1rem",
+                                    fontWeight: 500,
+                                }}
+                            >
+                                {item.title} — {item.price}
+                            </Typography>
+                        </Box>
+                    </Card>
+                ))}
+            </Box>
         </Box>
     );
 
     return (
-        <>
+        <Box sx={{ background: "#0a0a0a" }}>
             {renderSection("Portfolio Horror", horrorMakeups, "/Horror")}
             {renderSection("Cicatrices", scars, "/Scar")}
             {renderSection("Portfolio Classic", makeups, "/Classic")}
-        </>
+        </Box>
     );
 }

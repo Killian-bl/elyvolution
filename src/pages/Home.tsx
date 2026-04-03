@@ -1,51 +1,141 @@
-import { Box, Container, Typography} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Form from "../components/Form.tsx";
+import Comment from "../components/Comment.tsx";
 import fond from "../assets/images/fond.png";
-import Comment from "../components/Comment.tsx"
 
 const Home = () => {
-
     return (
         <Box>
+
+            {/* HERO */}
             <Box
                 sx={{
-                    backgroundImage: `url(${fond})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                    minHeight: "70vh",
+                    minHeight: "90vh",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
                     textAlign: "center",
-                    px: 2,
+                    px: 3,
+                    position: "relative",
+
+                    backgroundImage: `url(${fond})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+
+                    // 🔥 overlay sombre + effet luxe
+                    "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                            "linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9))",
+                    },
                 }}
             >
-                <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: "bold" }}>
-                    Elyvolution
-                </Typography>
-                <Typography variant="h5" gutterBottom>
-                    Sublimez votre beauté naturelle
-                </Typography>
-                <Form>
-                </Form>
+                {/* contenu au-dessus de l’overlay */}
+                <Box sx={{ position: "relative", zIndex: 1, maxWidth: "700px" }}>
+
+                    <Typography
+                        sx={{
+                            fontSize: { xs: "2.5rem", md: "4rem" },
+                            fontWeight: 600,
+                            color: "#fff",
+                            mb: 2,
+                            letterSpacing: "2px",
+                        }}
+                    >
+                        Elyvolution
+                    </Typography>
+
+                    <Typography
+                        sx={{
+                            fontSize: { xs: "1.2rem", md: "1.5rem" },
+                            color: "rgba(255,255,255,0.75)",
+                            mb: 5,
+                        }}
+                    >
+                        Sublimez votre beauté naturelle
+                    </Typography>
+
+                    {/* FORM */}
+                    <Box
+                        sx={{
+                            maxWidth: "400px",
+                            margin: "0 auto",
+                            p: 3,
+                            borderRadius: "20px",
+                            background: "rgba(255,255,255,0.05)",
+                            backdropFilter: "blur(10px)",
+                            boxShadow: "0 10px 40px rgba(157,3,3,0.2)",
+                        }}
+                    >
+                        <Form />
+                    </Box>
+                </Box>
             </Box>
 
-            <Container sx={{ py: 8 }}>
-                <Typography variant="h4" gutterBottom sx={{ mb: 3, fontWeight: "bold", textAlign: "center" }}>
+            {/* ABOUT PREVIEW */}
+            <Box
+                sx={{
+                    px: { xs: 3, md: 6 },
+                    py: { xs: 10, md: 14 },
+                    maxWidth: "900px",
+                    margin: "0 auto",
+                    textAlign: "center",
+                }}
+            >
+                <Typography
+                    sx={{
+                        fontSize: "1.6rem",
+                        mb: 4,
+                        color: "#fff",
+                        letterSpacing: "1px",
+                    }}
+                >
                     À propos
                 </Typography>
-                <Typography variant="body1" sx={{ textAlign: "justify", maxWidth: 800, mx: "auto" }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed metus vel lacus euismod dapibus. Praesent sit amet mollis risus. Cras augue ipsum, fermentum gravida volutpat eget, vestibulum vitae libero. Nullam nec nibh non dui cursus scelerisque vestibulum pellentesque neque. Ut eros nisi, dapibus sed lobortis at, sollicitudin vel risus. Maecenas semper felis in commodo dapibus. Etiam tincidunt turpis metus. Curabitur pharetra lectus facilisis lacus facilisis, interdum commodo justo ornare. Praesent eu consequat ipsum. Donec eu dui tristique, bibendum enim a, ornare velit. Fusce varius ultrices purus, porta cursus nisl mattis ac. Donec vel magna eget elit pellentesque congue. Proin cursus in tortor sed tempor. Integer ullamcorper libero non enim vehicula feugiat. Integer hendrerit ut felis ac volutpat.
-                </Typography>
-                <Typography variant="body1" sx={{ textAlign: "justify", maxWidth: 800, mx: "auto" }}>
-                    Ut sed nisi eget felis gravida tristique in eu mi. Donec augue lacus, varius sed tincidunt et, commodo vel sem. Suspendisse sed odio in ex ultrices blandit. Nulla magna nunc, vehicula a ligula fringilla, condimentum ornare ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis turpis ipsum, dictum ac mollis et, bibendum quis justo. Sed eget pharetra dui, non imperdiet metus. Suspendisse vestibulum mauris eget nisl bibendum ultrices. Nunc ullamcorper nulla in lacus pulvinar, non congue libero ultrices.
-                </Typography>
-            </Container>
 
-            <Box sx={{ backgroundColor: "#9d0303", py: 10, textAlign: "center" }}>
-                <Comment></Comment>
+                <Typography
+                    sx={{
+                        fontSize: "1.1rem",
+                        lineHeight: 1.9,
+                        color: "rgba(255,255,255,0.75)",
+                    }}
+                >
+                    Je sublime chaque visage avec une approche artistique et sur mesure.
+                    Chaque création est pensée pour révéler votre personnalité, votre style
+                    et votre confiance.
+
+                    <br /><br />
+
+                    Du maquillage glamour aux effets spéciaux, mon objectif est simple :
+                    vous faire sentir unique.
+                </Typography>
+            </Box>
+
+            {/* COMMENTAIRES */}
+            <Box
+                sx={{
+                    py: { xs: 10, md: 14 },
+                    px: 3,
+                    textAlign: "center",
+                    background: "linear-gradient(180deg, #0f0f0f, #1a1a1a)",
+                }}
+            >
+                <Box
+                    sx={{
+                        maxWidth: "800px",
+                        margin: "0 auto",
+                        p: { xs: 3, md: 5 },
+                        borderRadius: "20px",
+                        background: "rgba(255,255,255,0.03)",
+                        backdropFilter: "blur(10px)",
+                        boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
+                    }}
+                >
+                    <Comment />
+                </Box>
             </Box>
         </Box>
     );

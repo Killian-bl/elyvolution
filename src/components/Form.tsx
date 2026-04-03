@@ -29,24 +29,18 @@ const Form = () => {
     return (
         <Box
             sx={{
-                background: "#0f0f0f",
-                padding: "40px 20px",
-                borderRadius: "12px",
-                maxWidth: "500px",
-                margin: "40px auto",
-                boxShadow: "0 0 20px rgba(0,0,0,0.5)",
+                p: { xs: 2, md: 3 },
             }}
         >
             <Typography
-                variant="h4"
                 sx={{
                     textAlign: "center",
-                    marginBottom: "30px",
-                    color: "#9D0303",
-                    fontWeight: "bold",
+                    mb: 3,
+                    fontSize: "1.4rem",
+                    color: "#fff",
                 }}
             >
-                Prendre un rendez-vous
+                Prendre rendez-vous
             </Typography>
 
             <Box
@@ -55,27 +49,18 @@ const Form = () => {
                 sx={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: 3,
+                    gap: 2.5,
                 }}
             >
                 <TextField
                     label="Nom"
-                    variant="outlined"
                     value={appointment.name}
                     onChange={(e) =>
                         setAppointment({ ...appointment, name: e.target.value })
                     }
-                    required
                     fullWidth
-                    sx={{
-                        input: { color: "#fff" },
-                        label: { color: "#aaa" },
-                        "& .MuiOutlinedInput-root": {
-                            "& fieldset": { borderColor: "#333" },
-                            "&:hover fieldset": { borderColor: "#9D0303" },
-                            "&.Mui-focused fieldset": { borderColor: "#9D0303" },
-                        },
-                    }}
+                    required
+                    sx={inputStyle}
                 />
 
                 <TextField
@@ -85,17 +70,9 @@ const Form = () => {
                     onChange={(e) =>
                         setAppointment({ ...appointment, email: e.target.value })
                     }
-                    required
                     fullWidth
-                    sx={{
-                        input: { color: "#fff" },
-                        label: { color: "#aaa" },
-                        "& .MuiOutlinedInput-root": {
-                            "& fieldset": { borderColor: "#333" },
-                            "&:hover fieldset": { borderColor: "#9D0303" },
-                            "&.Mui-focused fieldset": { borderColor: "#9D0303" },
-                        },
-                    }}
+                    required
+                    sx={inputStyle}
                 />
 
                 <TextField
@@ -104,31 +81,13 @@ const Form = () => {
                     onChange={(e) =>
                         setAppointment({ ...appointment, date: e.target.value })
                     }
-                    required
                     fullWidth
-                    sx={{
-                        input: { color: "#fff" },
-                        "& .MuiOutlinedInput-root": {
-                            "& fieldset": { borderColor: "#333" },
-                            "&:hover fieldset": { borderColor: "#9D0303" },
-                            "&.Mui-focused fieldset": { borderColor: "#9D0303" },
-                        },
-                    }}
+                    required
+                    sx={inputStyle}
                 />
 
-                <Button
-                    type="submit"
-                    variant="contained"
-                    sx={{
-                        background: "#9D0303",
-                        padding: "12px",
-                        fontWeight: "bold",
-                        "&:hover": {
-                            background: "#c00404",
-                        },
-                    }}
-                >
-                    Envoyer
+                <Button sx={buttonStyle} type="submit">
+                    Réserver
                 </Button>
             </Box>
         </Box>
@@ -136,3 +95,40 @@ const Form = () => {
 };
 
 export default Form;
+
+/* 🎨 mêmes styles */
+const inputStyle = {
+    input: { color: "#fff" },
+    label: { color: "rgba(255,255,255,0.6)" },
+
+    "& .MuiOutlinedInput-root": {
+        borderRadius: "12px",
+        background: "rgba(255,255,255,0.03)",
+
+        "& fieldset": {
+            borderColor: "rgba(255,255,255,0.1)",
+        },
+        "&:hover fieldset": {
+            borderColor: "#9D0303",
+        },
+        "&.Mui-focused fieldset": {
+            borderColor: "#9D0303",
+            boxShadow: "0 0 10px rgba(157,3,3,0.4)",
+        },
+    },
+};
+
+const buttonStyle = {
+    mt: 1,
+    py: 1.5,
+    borderRadius: "30px",
+    fontWeight: 600,
+    background: "linear-gradient(45deg, #9D0303, #c00404)",
+    color: "#fff",
+    textTransform: "none",
+
+    "&:hover": {
+        transform: "scale(1.03)",
+        boxShadow: "0 5px 20px rgba(157,3,3,0.4)",
+    },
+};
