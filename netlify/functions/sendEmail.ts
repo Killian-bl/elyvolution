@@ -10,7 +10,7 @@ export const handler = async (event: any) => {
 
         await resend.emails.send({
             from: "Portfolio <onboarding@resend.dev>",
-            to: "email-proprietaire@gmail.com",
+            to: "killian.bastardy@gmail.com",
             subject: "Nouveau rendez-vous",
             html: `
         <h2>Nouveau rendez-vous</h2>
